@@ -5,10 +5,20 @@ axios
   .then(response => {
     const vegList = document.createElement("ul");
     document.querySelector(".container-outer").appendChild(vegList);
-    const vegetable = document.createElement("li");
-    const oneVeg = response.data.data[0].name;
-    vegetable.innerHTML = oneVeg;
-    vegList.appendChild(vegetable);
+    response.data.data.forEach((el, index) => {
+      let vegLI = document.createElement("li");
+      vegLI.innerHTML = el.name;
+      vegLI.idNum = index;
+      vegList.appendChild(vegLI);
+      let deleteButton = document.createElement("button");
+      deleteButton.innerHTML = "DELETE";
+      deleteButton.addEventListener("click", function(e) {
+        console.log("Button clicked ", vegLI.idNum);
+      });
+      vegList.appendChild(deleteButton);
+      console.log(vegLI.innerHTML, vegLI.idNum);
+    });
+    // const oneVeg = response.data.data[0].name;
   })
   .catch(function(error) {
     console.log(error);

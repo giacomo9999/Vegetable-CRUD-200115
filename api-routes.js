@@ -1,8 +1,8 @@
 let router = require("express").Router();
 
-router.get("/", (req, res) => {
-  res.json({ status: "API Routes Working", message: "Welcome to the API" });
-});
+// router.get("/", (req, res) => {
+//   res.json({ status: "API Routes Working", message: "Welcome to the API" });
+// });
 
 const vegetableController = require("./vegetableController");
 
