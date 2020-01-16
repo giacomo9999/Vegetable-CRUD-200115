@@ -1,7 +1,9 @@
 Vegetable = require("./vegetableModel");
 
 exports.index = (req, res) => {
-  Vegetable.get((err, vegetables) => {
+  console.log("Now I Am Here");
+  Vegetable.find((err, vegetables) => {
+    console.log(vegetables);
     if (err) {
       return res.json({ status: "Error", message: err });
     }

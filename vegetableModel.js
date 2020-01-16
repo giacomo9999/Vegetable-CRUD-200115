@@ -15,12 +15,6 @@ const vegetableSchema = mongoose.Schema({
   create_date: { type: Date, default: Date.now }
 });
 
-const Vegetable = (module.exports = mongoose.model(
-  "vegetable",
-  vegetableSchema
-));
+const Vegetable = mongoose.model("vegetable", vegetableSchema);
 
-module.exports.get = (callback, limit) => {
-  //   Vegetable.find(callback).limit(limit);
-  Vegetable.find(callback);
-};
+module.exports = Vegetable;
